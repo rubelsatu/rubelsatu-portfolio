@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Rubel Satu | Visualization Engineer &amp; Operations Specialist</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-main: #0a0e17;
+            --bg-card: #121824;
+            --bg-card-hover: #1a2333;
+            --accent-cyan: #00f2fe;
+            --accent-blue: #4facfe;
+            --accent-purple: #7f00ff;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding: 8rem 5% 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero h2 {
+            font-size: 1.4rem;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        /* Stat Cards */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            color: var(--accent-cyan);
+        }
+
+        .stat-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        /* Sections General */
+        section {
+            padding: 6rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-5px);
+            border-color: rgba(0, 242, 254, 0.3);
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .skill-card ul li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-card ul li::before {
+            content: "▹";
+            color: var(--accent-cyan);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 3rem;
+            border-radius: 16px;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info i {
+            font-size: 1.2rem;
+            color: var(--accent-cyan);
+            background: rgba(0, 242, 254, 0.1);
+            padding: 1rem;
+            border-radius: 50%;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-main);
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--accent-cyan);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+            }
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <nav>
+        <div class="logo">MD RUBEL SATU</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services &amp; Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <span class="badge">Production Development Specialist @ Hitachi Energy</span>
+            <h1>Visualization Engineer &amp; Power Platform Expert</h1>
+            <h2>Transforming Complex Data into Actionable Business Intelligence</h2>
+            <p>Specialized in Power BI Dashboard Development, SharePoint Architecture, Power Apps, Power Automate, and Warehouse Operational Training &amp; Safety Compliance.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> Get in Touch</a>
+                <a href="#services" class="btn btn-secondary"><i class="fas fa-layer-group"></i> View Expertise</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-card">
+                <h3>M365</h3>
+                <p>Power Platform Solutions</p>
+            </div>
+            <div class="stat-card">
+                <h3>BI</h3>
+                <p>Advanced Data Visualization</p>
+            </div>
+            <div class="stat-card">
+                <h3>100%</h3>
+                <p>HSE &amp; Safety Assurance</p>
+            </div>
+            <div class="stat-card">
+                <h3>Lean</h3>
+                <p>Six Sigma Methodology</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services & Skills Section -->
+    <section id="services">
+        <div class="section-title">
+            <h2>Core Competencies &amp; Expertise</h2>
+            <p>Comprehensive solutions spanning Data Visualization, M365 Business Automation, and Operational Training.</p>
+        </div>
+
+        <div class="skills-grid">
+            <!-- Card 1 -->
+            <div class="skill-card">
+                <i class="fas fa-chart-line skill-icon"></i>
+                <h3>Visualization &amp; Power BI</h3>
+                <ul>
+                    <li>Executive Power BI Dashboard Development</li>
+                    <li>DAX &amp; Power Query Data Modeling</li>
+                    <li>Key Performance Indicator (KPI) Tracking</li>
+                    <li>Automated Data Refresh &amp; Gateways</li>
+                </ul>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="skill-card">
+                <i class="fas fa-cubes skill-icon"></i>
+                <h3>Microsoft 365 Solutions</h3>
+                <ul>
+                    <li>SharePoint Architecture &amp; Enterprise Sites</li>
+                    <li>Power Apps Custom Business Applications</li>
+                    <li>Power Automate Workflow Automation</li>
+                    <li>Microsoft 365 Consulting Services</li>
+                </ul>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="skill-card">
+                <i class="fas fa-chalkboard-teacher skill-icon"></i>
+                <h3>Training Delivery &amp; Onboarding</h3>
+                <ul>
+                    <li>New Hire Orientation &amp; Warehouse Onboarding</li>
+                    <li>Core Functions: Picking, Packing, Shipping</li>
+                    <li>Certified MHE Training (Forklift, EPJ, Order Picker)</li>
+                    <li>WMS, RF Scanners &amp; Voice-Picking Coaching</li>
+                </ul>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="skill-card">
+                <i class="fas fa-shield-alt skill-icon"></i>
+                <h3>Safety &amp; Compliance Assurance</h3>
+                <ul>
+                    <li>Mandatory Health, Safety &amp; Environmental (HSE)</li>
+                    <li>Hazardous Materials (HazMat/DG) &amp; Emergency Protocols</li>
+                    <li>Regular Safety Audits &amp; Behavioral Checks</li>
+                    <li>Statutory, SLA &amp; Internal Audit Compliance</li>
+                </ul>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="skill-card">
+                <i class="fas fa-user-check skill-icon"></i>
+                <h3>Performance &amp; Skills Tracking</h3>
+                <ul>
+                    <li>Site Training Matrix Maintenance</li>
+                    <li>Probationary Performance Monitoring</li>
+                    <li>Structured Feedback &amp; Remedial Coaching</li>
+                    <li>Cross-Training &amp; Flexibility Boosts</li>
+                </ul>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="skill-card">
+                <i class="fas fa-sync-alt skill-icon"></i>
+                <h3>Continuous Improvement</h3>
+                <ul>
+                    <li>Standard Operating Procedures (SOPs) Review</li>
+                    <li>DHL First Choice (Lean/Six Sigma) Integration</li>
+                    <li>One-Point Lessons (OPLs) Visual Aids</li>
+                    <li>Operational Workflow Simplification</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-title">
+            <h2>Contact &amp; Engagement</h2>
+            <p>Let's discuss how I can help streamline your business processes and data analytics.</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p style="color: var(--text-muted); margin-bottom: 2rem;">Feel free to reach out for consulting opportunities or operational advice.</p>
+                
+                <div>
+                    <i class="fas fa-user"></i>
+                    <div>
+                        <strong>Md Rubel Satu</strong>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Production Development Specialist</p>
+                    </div>
+                </div>
+
+                <div>
+                    <i class="fas fa-building"></i>
+                    <div>
+                        <strong>Hitachi Energy</strong>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Tuřanka 106A, 627 00 Brno-Slatina</p>
+                    </div>
+                </div>
+
+                <div>
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>Phone</strong>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">+420 776890594</p>
+                    </div>
+                </div>
+
+                <div>
+                    <i class="fas fa-globe"></i>
+                    <div>
+                        <strong>Website</strong>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">www.hitachienergy.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Subject">
+                </div>
+                <div class="form-group">
+                    <textarea rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Md Rubel Satu. All rights reserved. | Visualization Engineer &amp; Operations Specialist</p>
+    </footer>
+
+</body>
+</html>
