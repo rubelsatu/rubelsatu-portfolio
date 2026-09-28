@@ -68,11 +68,14 @@
             color: var(--accent-cyan);
         }
 
+        .hero, .achievements, .services, .contact-section {
+            padding: 80px 8%;
+        }
+
         .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 80px 8%;
             gap: 50px;
         }
 
@@ -88,7 +91,7 @@
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border: 1px solid rgba(0, 242, 254, 0.2);
         }
 
@@ -108,6 +111,7 @@
         .btn-group {
             display: flex;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -142,13 +146,6 @@
             background: var(--bg-card);
         }
 
-        .hero-image-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
         .profile-img {
             width: 300px;
             height: 300px;
@@ -158,22 +155,85 @@
             box-shadow: 0 0 35px rgba(0, 242, 254, 0.25);
         }
 
-        .services, .contact-section {
-            padding: 80px 8%;
-        }
-
+        /* Achievements Section */
         .section-title {
             text-align: center;
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 15px;
+            font-weight: 800;
         }
 
         .section-subtitle {
             text-align: center;
             color: var(--text-muted);
             margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
+        .achievement-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+
+        .achievement-container:hover {
+            border-color: var(--accent-cyan);
+        }
+
+        .achievement-award-img {
+            width: 100%;
+            max-height: 450px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .achievement-details {
+            padding: 35px;
+        }
+
+        .achievement-details h3 {
+            color: var(--accent-cyan);
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+
+        .achievement-details h4 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .award-info-box {
+            background-color: rgba(10, 14, 23, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+        }
+
+        .award-info-item {
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .award-info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .award-info-item strong {
+            color: var(--text-main);
+        }
+
+        /* Core Services */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -209,7 +269,7 @@
             font-size: 0.95rem;
         }
 
-        /* Contact Form Styles */
+        /* Contact Section */
         .contact-container {
             max-width: 650px;
             margin: 0 auto;
@@ -271,7 +331,8 @@
         <div class="logo">MD RUBEL SATU</div>
         <nav>
             <a href="#about">About</a>
-            <a href="#services">Services & Skills</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#services">Services</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -280,10 +341,10 @@
         <div class="hero-text">
             <span class="badge">Production Development Specialist @ Hitachi Energy</span>
             <h1>Visualization Engineer & Power Platform Expert</h1>
-            <p>Transforming complex operational data into actionable business intelligence. Specialized in Power BI, SharePoint Architecture, Power Apps, Power Automate, and Warehouse Operational Training & Safety Compliance.</p>
+            <p>Transforming operational data into actionable business intelligence. Specialized in Power BI dashboards, SharePoint Architecture, low-code Power Apps, and Warehouse Operational Safety Compliance.</p>
             <div class="btn-group">
                 <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Get in Touch</a>
-                <a href="#services" class="btn btn-secondary"><i class="fa-solid fa-layer-group"></i> View Expertise</a>
+                <a href="#achievements" class="btn btn-secondary"><i class="fa-solid fa-trophy"></i> Key Achievements</a>
             </div>
         </div>
         <div class="hero-image-container">
@@ -291,14 +352,51 @@
         </div>
     </section>
 
+    <!-- ACHIEVEMENTS SECTION -->
+    <section class="achievements" id="achievements">
+        <h2 class="section-title">Key Achievements</h2>
+        <p class="section-subtitle">Recognized for Excellence and Continuous Process Improvement</p>
+
+        <div class="achievement-container">
+            <!-- Award Photo -->
+            <img src="achievement_award.png" alt="Award Presentation" class="achievement-award-img">
+            
+            <div class="achievement-details">
+                <h3>Improver of the Year FY2026</h3>
+                <h4>Winner - Operational Excellence Award</h4>
+                
+                <div class="award-info-box">
+                    <div class="award-info-item">
+                        <i class="fa-solid fa-diagram-project" style="color: var(--accent-cyan); margin-right: 8px;"></i>
+                        <strong>Winning Project:</strong> Digitization of the Department / Production Data[cite: 8]
+                    </div>
+                    <div class="award-info-item">
+                        <i class="fa-solid fa-user-tie" style="color: var(--accent-cyan); margin-right: 8px;"></i>
+                        <strong>Presented By:</strong> Pavel Kovář (Country Managing Director CZ & SK, Hitachi Energy)[cite: 8]
+                    </div>
+                    <div class="award-info-item">
+                        <i class="fa-solid fa-award" style="color: var(--accent-cyan); margin-right: 8px;"></i>
+                        <strong>Recognition:</strong> Outstanding continuous improvement project and its contribution to Hitachi Energy Czech Republic[cite: 8].
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <span class="badge">Hitachi Energy</span>
+                    <span class="badge">Czech Republic</span>
+                    <span class="badge"><i class="fa-solid fa-calendar-days"></i> Sept 21, 2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="services" id="services">
         <h2 class="section-title">Core Expertise</h2>
-        <p class="section-subtitle">Combining Data Analytics, Automation & Warehouse Operations</p>
+        <p class="section-subtitle">Data Analytics, Automation & Operational Efficiency</p>
         <div class="grid">
             <div class="card">
                 <i class="fa-solid fa-chart-pie"></i>
                 <h3>Power BI & Analytics</h3>
-                <p>Designing interactive, high-impact business dashboards for operational intelligence and executive decision-making.</p>
+                <p>Designing interactive, high-impact business dashboards for operational intelligence and executive reporting.</p>
             </div>
             <div class="card">
                 <i class="fa-solid fa-network-wired"></i>
@@ -308,21 +406,21 @@
             <div class="card">
                 <i class="fa-solid fa-warehouse"></i>
                 <h3>Warehouse Operations</h3>
-                <p>Streamlining materials handling, inventory tracking accuracy, standard operating procedures, and operational efficiency.</p>
+                <p>Streamlining materials handling, inventory accuracy, standard operating procedures, and operational efficiency.</p>
             </div>
             <div class="card">
                 <i class="fa-solid fa-shield-halved"></i>
-                <h3>HSE & Safety Compliance</h3>
-                <p>Ensuring 100% Health, Safety, and Environment assurance along with Lean / Six Sigma process improvement methodology.</p>
+                <h3>HSE & Compliance</h3>
+                <p>Ensuring 100% Health, Safety, and Environment assurance alongside Lean process methodology.</p>
             </div>
         </div>
     </section>
 
     <section class="contact-section" id="contact">
         <h2 class="section-title">Get In Touch</h2>
-        <p class="section-subtitle">Send a message directly for collaborations or inquiries</p>
+        <p class="section-subtitle">Send a message directly for inquiries or collaborations</p>
         <div class="contact-container">
-            <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for reaching out! Your message has been received.'); this.reset();">
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent! I will get back to you soon.'); this.reset();">
                 <div class="form-group">
                     <input type="text" name="name" placeholder="Your Name" required>
                 </div>
